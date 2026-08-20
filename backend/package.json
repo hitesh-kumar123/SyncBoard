@@ -1,0 +1,41 @@
+{
+  "name": "whiteboard-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"API,WS\" -c \"blue,green\" \"npm run dev:api\" \"npm run dev:ws\"",
+    "dev:api": "next dev -p 4000",
+    "dev:ws": "tsx src/server/ws-server.ts",
+    "build": "prisma generate && next build",
+    "start": "next start -p 4000",
+    "lint": "next lint",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "ws:server": "tsx src/server/ws-server.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.21.1",
+    "bcryptjs": "^2.4.3",
+    "next": "^14.2.15",
+    "next-auth": "^4.24.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0",
+    "y-websocket": "^1.5.4",
+    "yjs": "^13.6.18",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@types/ws": "^8.5.12",
+    "concurrently": "^9.1.2",
+    "prisma": "^5.21.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}

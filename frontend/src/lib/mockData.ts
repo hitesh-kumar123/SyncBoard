@@ -1,0 +1,165 @@
+import { Board, Collaborator, BoardElement } from "@/types/board";
+import { User } from "@/types/auth";
+
+export const currentUserMock: User = {
+  id: "user-1",
+  name: "John Doe",
+  email: "john@example.com",
+  avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjOmV6lF-hK3n28hNaH3OrhKu2mekMOKHjobSR4VsFfz5znOI_MwXsl3Ks_eXq-TNDEnxHXWGvfTP96WQs7oOpR3syQFA75yHxZb4Eu03TT3yhDbVXFOlEXb8YmrxumKMIJkGBczZoKmXeKfEIepITWkCb919YCqISdijdNfWnAHSWVAJ7BeM4hiNBJlbmW48fiymC7BfjJjGvsuxLuTPoVTiW5KtLxX7ngYeMBjJT-l0sdvgxo5Gi8g",
+  color: "#0058be",
+};
+
+export const sampleCollaborators: Collaborator[] = [
+  {
+    id: "user-1",
+    name: "John Doe",
+    email: "john@example.com",
+    avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjOmV6lF-hK3n28hNaH3OrhKu2mekMOKHjobSR4VsFfz5znOI_MwXsl3Ks_eXq-TNDEnxHXWGvfTP96WQs7oOpR3syQFA75yHxZb4Eu03TT3yhDbVXFOlEXb8YmrxumKMIJkGBczZoKmXeKfEIepITWkCb919YCqISdijdNfWnAHSWVAJ7BeM4hiNBJlbmW48fiymC7BfjJjGvsuxLuTPoVTiW5KtLxX7ngYeMBjJT-l0sdvgxo5Gi8g",
+    role: "OWNER",
+    color: "#0058be",
+    isOnline: true,
+  },
+  {
+    id: "user-2",
+    name: "Alex",
+    email: "alex@example.com",
+    avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCMVJ1B_3NyyDolRl7xNKeVFd-IpxnQIRkVVpr1TuH8JrvheG7lb_P3REtXKz4UtTbcUQFvRz7ew0SB2ANxFjL_-lFqjyUj1InwzOeQPIyEV6y1SNWGctMayickP77eLb46uvdk1dAmpGwiW9FFny21pJWunAX2go6u8DVbLowGPnqZTJOYz7H7cDHGdi4jc7dDZW9SvnxXGLai6DHUCVzAuzhHQhNRlI56A56HjQwm0NeLusD7wxa2NA",
+    role: "EDITOR",
+    color: "#0058be",
+    isOnline: true,
+  },
+  {
+    id: "user-3",
+    name: "Rahul",
+    email: "rahul@example.com",
+    avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmjRgggA6qCCLsSN8Auq7JUZg25emChGqvBT-D0jhGClPXMMAUd-Byv-5lXHm6Phhj-LBPxpzNr_MalS24V5hOh29ugDKX-QUtxv9XdWC5q_ecfRKLX41QSwxm4n9Uw7uKhG-bnjP2TeJ7rRYI6bQAaFikwteHoz0HAgIdgUsFTCWH0hLAHkPdVOylxrtnlqQiW8g5LExpAEzAwb_w8GC5oC-UdnIK-p-IT3GdQXdTFRz1tfdLMItusA",
+    role: "EDITOR",
+    color: "#b75b00",
+    isOnline: true,
+  },
+  {
+    id: "user-4",
+    name: "Alice",
+    email: "alice@example.com",
+    avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuBkCacw5zYKLRyoaw7hMGilc_qFD4mQlS3OKR5E3N6IyaWmHTEffS0HJikjaATReSA0X8vgDHIA6ATIy-XwUksyssBNVW9Eyub_jKX02XwWRKEy3PCrIE23-GEq1KxOk3CLVd0sNjUHqAeStDniJHo5R7g4VKT9UuSOZydNG7nLvXR6ZFqon2ytNY2vRNz8zi_pLlV1VbQveC2uXa_lrXKj7TbSB5HSTfDtqF__jBMQ52_owiGN2t65yg",
+    role: "EDITOR",
+    color: "#4648d4",
+    isOnline: false,
+  },
+  {
+    id: "user-5",
+    name: "Charlie",
+    email: "charlie@example.com",
+    avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCt4mgp0JOxjpJTNQYdpbcy1BIwNhO8D6mjV0kRHiASX8yVBnnJpbx1my9D9irfKSCwmWdIXOQFsnBJd_CWmyAyRAC1MIjFqvVJqlB67DCgaCb_WFoOesO-19ZqC8Fp2wFy8TUhywR5v_apGb-vL0byN36R8R2LmbFbqrt_SC3doeI8PGc3smsIUa1TBB93QupVS3KXNCjlaNFS7_2UnckEk4KMRYmLoCa6iR6vMC1_fCtOTvkjH5f0ZA",
+    role: "VIEWER",
+    color: "#6063ee",
+    isOnline: false,
+  }
+];
+
+export const initialEditorElements: BoardElement[] = [
+  {
+    id: "rect-1",
+    type: "rectangle",
+    x: 220,
+    y: 180,
+    width: 320,
+    height: 200,
+    fillColor: "#d8e2ff",
+    strokeColor: "#0058be",
+    strokeWidth: 2,
+    opacity: 0.6,
+    cornerRadius: 8,
+    createdAt: Date.now() - 100000,
+    updatedAt: Date.now() - 50000,
+  },
+  {
+    id: "circle-1",
+    type: "circle",
+    x: 720,
+    y: 360,
+    radius: 110,
+    fillColor: "#ffdad6",
+    strokeColor: "#ba1a1a",
+    strokeWidth: 2,
+    opacity: 0.6,
+    createdAt: Date.now() - 90000,
+    updatedAt: Date.now() - 40000,
+  },
+  {
+    id: "pencil-1",
+    type: "pencil",
+    x: 640,
+    y: 140,
+    points: [10, 75, 40, 20, 80, 120, 120, 50, 150, 10, 180, 140, 190, 80],
+    strokeColor: "#b75b00",
+    strokeWidth: 4,
+    createdAt: Date.now() - 80000,
+    updatedAt: Date.now() - 30000,
+  },
+  {
+    id: "text-1",
+    type: "text",
+    x: 320,
+    y: 460,
+    text: "Brainstorming Session\nPhase 1: Component Architecture",
+    fontSize: 24,
+    strokeColor: "#151c27",
+    createdAt: Date.now() - 70000,
+    updatedAt: Date.now() - 20000,
+  }
+];
+
+export const mockBoards: Board[] = [
+  {
+    id: "board-1",
+    title: "Q3 Product Roadmap & Strategy",
+    description: "Quarterly alignment and architecture brainstorm session",
+    category: "ACTIVE",
+    createdAt: "2026-08-10T10:00:00Z",
+    updatedAt: "Last updated 2 hours ago",
+    owner: sampleCollaborators[0],
+    collaborators: [sampleCollaborators[0], sampleCollaborators[1], sampleCollaborators[2], sampleCollaborators[3]],
+    elements: initialEditorElements,
+  },
+  {
+    id: "board-2",
+    title: "Design System Core Components V2",
+    description: "Design tokens, buttons, toolbars and modals specifications",
+    category: "DESIGN",
+    createdAt: "2026-08-12T14:30:00Z",
+    updatedAt: "Last updated yesterday",
+    owner: sampleCollaborators[3],
+    collaborators: [sampleCollaborators[3], sampleCollaborators[0], sampleCollaborators[1]],
+    elements: [],
+  },
+  {
+    id: "board-3",
+    title: "Marketing Campaign Q1 Brainstorming",
+    description: "Creative concepts and promotional strategies",
+    category: "ARCHIVE",
+    createdAt: "2026-08-01T09:15:00Z",
+    updatedAt: "Last updated 1 week ago",
+    owner: {
+      id: "user-6",
+      name: "Mark Roe",
+      email: "mark@example.com",
+      avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDMkS8rcPvarM3VDSldGUS0EBCkh890pPbCwALVUwZHX1tZUP5stWeXW87pytcsrPY22tjz0zGV2kEGbbt-jW7zMA20jzmstK91VOlsskyEeL30isPTmPOFC69iE0XoxatzbWFqZ8bFslryKDzngvBZzuhLhlVKPTyaaYuQRf97ZIJrPWmAtm6Obb5A3fpL4k2xlhi8iEedgQBX1SO5yhUbnPpa1_toR7lseenNCg5WUV_RSqK4BNB5gw",
+      role: "OWNER",
+      color: "#2170e4",
+    },
+    collaborators: [
+      {
+        id: "user-6",
+        name: "Mark Roe",
+        email: "mark@example.com",
+        avatarUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDMkS8rcPvarM3VDSldGUS0EBCkh890pPbCwALVUwZHX1tZUP5stWeXW87pytcsrPY22tjz0zGV2kEGbbt-jW7zMA20jzmstK91VOlsskyEeL30isPTmPOFC69iE0XoxatzbWFqZ8bFslryKDzngvBZzuhLhlVKPTyaaYuQRf97ZIJrPWmAtm6Obb5A3fpL4k2xlhi8iEedgQBX1SO5yhUbnPpa1_toR7lseenNCg5WUV_RSqK4BNB5gw",
+        role: "OWNER",
+        color: "#2170e4",
+      },
+      sampleCollaborators[0],
+      sampleCollaborators[4],
+    ],
+    elements: [],
+  }
+];
